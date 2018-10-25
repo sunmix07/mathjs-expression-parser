@@ -66,7 +66,7 @@ math.import({
 // import everything from Math (like trigonometric functions)
 var allFromMath = {};
 Object.getOwnPropertyNames(Math).forEach(function (name) {
-  allFromMath[name] = Math[name];
+  if (!Object.prototype.hasOwnProperty(name)) allFromMath[name] = Math[name];
 });
 math.import(allFromMath);
 
